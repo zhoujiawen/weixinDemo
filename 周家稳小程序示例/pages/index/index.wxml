@@ -1,0 +1,19 @@
+
+<import src="../../templates/testTemplate/testTemplate.wxml"/>
+
+<!--index.wxml-->
+<view class="container">
+  <button type="primary" bindtap="showDialog"> 触发弹窗 </button>
+  <template is="msgItem" data="{{list}}"/>
+  <text>数组:{{item}} </text>
+  <!--弹窗  -->
+  <dialog id='dialog' 
+      title='我是标题' 
+      content='恭喜你，学会了小程序组件' 
+      cancelText='知道了' 
+      confirm='谢谢你'
+      bind:cancelEvent="_cancelEvent"  
+      bind:confirmEvent="_confirmEvent">
+    </dialog>
+</view>
+

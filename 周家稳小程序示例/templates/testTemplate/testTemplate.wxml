@@ -1,0 +1,7 @@
+<!--模块  -->
+<template name="msgItem">
+  <view wx:for="{{list}}" wx:key="key" >
+    <text>{{index}}数组 </text>
+    <image src="{{item.cell}}"></image>
+  </view>
+</template>
