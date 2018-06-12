@@ -28,6 +28,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    url:"https://www.easy-mock.com/mock/5b160859271a021faf2c3904/zhoujiawen",
   }
 })

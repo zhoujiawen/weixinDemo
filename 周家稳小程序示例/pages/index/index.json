@@ -1,4 +1,6 @@
 {
+  "enablePullDownRefresh":true,
+  "onReachBottomDistance":true,
   "usingComponents": {
     "dialog": "/components/Dialog/dialog"
   }

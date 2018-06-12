@@ -1,29 +1,31 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/idea/idea",
     "pages/market/market",
     "pages/msg/msg",
     "pages/more/more",
-    "templates/testTemplate/testTemplate"
+    "templates/testTemplate/testTemplate",
+    "pages/ask/ask"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "周家稳小程序",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color":"#8a8a8a",
-    "selectedColor":"#1296db",
-    "backgroundColor":"#ffffff",
+    "color": "#8a8a8a",
+    "selectedColor": "#1296db",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath":"assets/icon_tabbar/home.png",
-        "selectedIconPath":"assets/icon_tabbar/home_light.png"
-      },{
+        "iconPath": "assets/icon_tabbar/home.png",
+        "selectedIconPath": "assets/icon_tabbar/home_light.png"
+      },
+      {
         "pagePath": "pages/idea/idea",
         "text": "想法",
         "iconPath": "assets/icon_tabbar/idea.png",

@@ -1,19 +1,84 @@
-
-<import src="../../templates/testTemplate/testTemplate.wxml"/>
-
 <!--index.wxml-->
 <view class="container">
-  <button type="primary" bindtap="showDialog"> 触发弹窗 </button>
-  <template is="msgItem" data="{{list}}"/>
-  <text>数组:{{item}} </text>
-  <!--弹窗  -->
-  <dialog id='dialog' 
-      title='我是标题' 
-      content='恭喜你，学会了小程序组件' 
-      cancelText='知道了' 
-      confirm='谢谢你'
-      bind:cancelEvent="_cancelEvent"  
-      bind:confirmEvent="_confirmEvent">
-    </dialog>
+  <!--头部视图  -->
+  <view class='search-view'>
+    <view class='search-input-view'>
+      <button class='search-input-button' >
+        <icon class='search-input-icon'  type="search" size="12"/> 
+        <text class='search-input-text' >搜索相关资讯</text>
+      </button>
+      <button class='search-ask-button' bindtap='gotoAskPage' >
+        <text class='search-ask-text' >提问</text>
+      </button>
+    </view>
+    <view class='head-btns-view'>
+      <button data-btn='0' bindtap='tapHeadBtn' class="head-btns-btn {{headBtnA==0?'head-btns-active':''}}">关注</button>
+      <button data-btn='1' bindtap='tapHeadBtn' class="head-btns-btn {{headBtnA==1?'head-btns-active':''}}">推荐</button>
+      <button data-btn='2' bindtap='tapHeadBtn' class="head-btns-btn {{headBtnA==2?'head-btns-active':''}}">热搜</button>
+    </view>
+    <view class="tab-item-line" animation="{{animationData}}"></view>
+  </view>
+  <!--内容  -->
+  <template wx:if="{{headBtnA==0}}" is="attention" data="{{attentionList}}" />
+  <template wx:elif="{{headBtnA==1}}" is="recommend" data="{{recommendList}}" />
+  <template wx:else="{{headBtnA==2}}" is="hotsearch" data="{{hotsearchList}}"/>
 </view>
+<!-- 关注 -->
+<template name="attention">
+  <view class="home-content">
+    <view class='recommend-cell' wx:for="{{attentionList}}" wx:key="key">
+      <image class='recommend-cell-image' src="{{item.avator}}"></image>
+      <text class='recommend-cell-name'>{{item.name}}关注了问题 · {{item.time}} </text>
+      <text class='recommend-cell-title'>{{item.title}}</text>
+      <text class='recommend-cell-detail'>{{item.detail}}</text>
+      <view class='recommend-cell-foot'>
+        <text >{{item.huida}} 回答 </text>
+        <text> {{item.guanzhu}} · 关注</text>
+      </view>
+    </view>
+  </view>
+</template>
+<!-- 推荐 -->
+<template name="recommend">
+  <view class="home-content">
+    <view class='recommend-cell' wx:for="{{recommendList}}" wx:key="key">
+      <image class='recommend-cell-image' src="{{item.avator}}"></image>
+      <text class='recommend-cell-name'>{{item.name}}</text>
+      <text class='recommend-cell-title'>{{item.title}}</text>
+      <text class='recommend-cell-detail'>{{item.detail}}</text>
+      <view class='recommend-cell-foot'>
+        <text >{{item.zan}} 赞 </text>
+        <text> {{item.pinglun}} 评论</text>
+      </view>
+    </view>
+  </view>
+</template>
+<!-- 热搜 -->
+<template name="hotsearch">
+  <view class="home-content">
+    <view class='hotsearch-cell' wx:for="{{hotsearchList}}" wx:key="key">
+      <view class='hotsearch-cell-view'>
+        <view class='hotsearch-cell-index' >{{item.index}}</view>
+        <text class='hotsearch-cell-hot' >{{item.hot}} 热度</text>
+        <text class='hotsearch-cell-title'>{{item.title}}</text>
+      </view>
+      <image class='hotsearch-cell-image' src="{{item.img}}"></image>
+    </view>
+  </view>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
